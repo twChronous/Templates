@@ -4,11 +4,9 @@
   "main": "src/index.ts",
   "license": "MIT",
   "scripts": {
-    "start": "node -r dotenv/config build/index.js",
-    "dev": "tsnd --respawn --no-notify --transpile-only -r tsconfig-paths/register -r dotenv/config src/index.ts",
-    "build": "babel src --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored",
-    "lint": "eslint ./ --ext js,ts",
-    "lint:fix": "eslint ./ --ext js,ts --fix"
+    "lint": "bun --bun eslint .",
+    "start": "bun run src/index.ts",
+    "lint:fix": "bun --bun eslint . --fix"
   },
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.5",
@@ -19,19 +17,15 @@
     "express": "^4.17.1",
     "handlebars": "^4.7.7",
     "helmet": "^4.6.0",
+    "jest": "^29.7.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.13.0",
     "nodemailer": "^6.6.5",
     "nodemailer-express-handlebars": "^4.0.0",
+    "ts-jest": "^29.3.2",
     "validator": "^13.6.0"
   },
   "devDependencies": {
-    "@babel/cli": "7.14.5",
-    "@babel/core": "7.14.6",
-    "@babel/plugin-proposal-class-properties": "7.14.5",
-    "@babel/plugin-proposal-decorators": "7.14.5",
-    "@babel/preset-env": "7.14.7",
-    "@babel/preset-typescript": "7.14.5",
     "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
@@ -42,7 +36,6 @@
     "@types/validator": "^13.6.3",
     "@typescript-eslint/eslint-plugin": "4.28.3",
     "@typescript-eslint/parser": "4.28.3",
-    "babel-plugin-module-resolver": "4.1.0",
     "eslint": "7.30.0",
     "eslint-config-airbnb-base": "14.2.1",
     "eslint-config-prettier": "8.3.0",

@@ -7,31 +7,40 @@ module.exports = {
     'plugin:prettier/recommended',
     'plugin:import/recommended',
     'eslint:recommended',
+    'plugin:bun/recommended'
   ],
-  plugins: ['import', 'prettier'],
+  plugins: ['import', 'prettier', '@typescript-eslint', 'bun'],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
+    Bun: 'readonly',
   },
   env: {
     es6: true,
     jest: true,
     node: true,
     commonjs: true,
+    bun: true,
   },
   parserOptions: {
-    ecmaVersion: 2020,
+    ecmaVersion: 'latest',
     sourceType: 'module',
+    project: './tsconfig.json'
   },
   settings: {
     'import/resolver': {
       node: {
         extensions: allowedExtensions,
       },
+      typescript: {
+        alwaysTryTypes: true,
+      },
     },
   },
   rules: {
     'prettier/prettier': 'error',
+    'bun/no-await-in-shell': 'error',
+    'bun/no-sync': 'warn',
 
     'camelcase': 'off',
     'class-methods-use-this': 'off',
@@ -105,29 +114,11 @@ module.exports = {
             /ts/.test(extension),
           ),
         },
-        'import/resolver': {
-          node: allowedExtensions,
-          typescript: {
-            alwaysTryTypes: true,
-          },
-        },
       },
       rules: {
         'no-shadow': 'off',
         'no-unused-vars': 'off',
         'no-use-before-define': 'off',
-
-        'import/extensions': [
-          'error',
-          'ignorePackages',
-          allowedExtensions.reduce(
-            (obj, extension) =>
-              Object.assign(obj, {
-                [extension.replace(/^\./, '')]: 'never',
-              }),
-            {},
-          ),
-        ],
 
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-shadow': ['error'],
@@ -156,5 +147,15 @@ module.exports = {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
       },
     },
+    {
+      files: ['**/*.test.ts', '**/*.spec.ts'],
+      env: {
+        'bun/test': true
+      },
+      rules: {
+        'import/no-extraneous-dependencies': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off'
+      }
+    }
   ],
 }
