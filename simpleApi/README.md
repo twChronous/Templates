@@ -10,7 +10,7 @@
 
 1. Clone this repository.
 2. Install all dependencies with `bun install`.
-3. Add a `.env` file based on [.env.example](https://github.com/schoolseat/api/blob/main/.env.example).
+3. Add a `.env` file based on [.env.example](https://github.com/twChronous/Templates/blob/master/simpleApi/.env.example).
 4. Start development server with `bun start` .
 
 ## 🎨 Linting
