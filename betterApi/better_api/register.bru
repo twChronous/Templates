@@ -1,0 +1,20 @@
+meta {
+  name: register
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:3000/register
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "name": "tester 1",
+    "email": "test@mail.com",
+    "password": "123456",
+    "twofa_enabled": false
+  }
+}

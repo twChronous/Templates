@@ -1,0 +1,15 @@
+meta {
+  name: logout
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:3000/logout
+  body: none
+  auth: inherit
+}
+
+headers {
+  set-cookie: accessToken=eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiI0MDc4YTFhMS1lMzQ5LTQ3YjYtYjBjNS1mZDZkNTRlMjA5YmIiLCJzZXNzaW9uSWQiOiJjMDkyNTJiMC0yZWI2LTRkMWEtODY3MS1kY2NiM2I5NmIyZmUiLCJpYXQiOjE3NDU4NDc3NjksImV4cCI6MTc0NTg0ODY2OX0.ftSiGj-x6dOHRMtV9oykPaJnMdf54vJ1zEFiPntXixM; Path=/; HttpOnly; Secure; SameSite=Strict; Expires=Mon, 28 Apr 2025 13:57:49 GMT;refreshToken=eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiI0MDc4YTFhMS1lMzQ5LTQ3YjYtYjBjNS1mZDZkNTRlMjA5YmIiLCJzZXNzaW9uSWQiOiJjMDkyNTJiMC0yZWI2LTRkMWEtODY3MS1kY2NiM2I5NmIyZmUiLCJpYXQiOjE3NDU4NDc3NjksImV4cCI6MTc0NjQ1MjU2OX0.nsLlW8AIlTx5IUjbS4p1sqxxH5SxR8d0Oz-NuLyLyMA; Path=/; HttpOnly; Secure; SameSite=Strict; Expires=Mon, 05 May 2025 13:42:49 GMT;
+}
